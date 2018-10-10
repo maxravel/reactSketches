@@ -17,23 +17,46 @@
         class App extends React.Component{
             state = {
                 name: "Arex",
-                age: 30,
+                age: 30
             }
-            handleClick(e){
-                console.log(e.target);
+            handleClick = (e) => {
+                //arrow allows use state by this kyword
+                //console.log(e.target);
+                this.setState({
+                    name: "George",
+                    age: 77
+                });
+                console.log(this.state);
             }
             handleMouseOver(e){
                 console.log(e.target);
                 console.log(e.pageX);
             }
+            handleCopy(e){
+               console.log("Don't copy!") 
+            }
+            handleChange = (e) =>{
+                this.setState({
+                    name: e.target.value
+                })
+            }
+            handleSubmit = (e) => {
+                e.preventDefault();
+                console.log("form submitted", this.state.name)
+
+            }
             render(){
                 return(
                     <div>
                         <h1>Hey You!</h1>
-                        <p>My name is {this.state.name}</p>
+                        <p>My name is {this.state.name} and my age is {this.state.age}</p>
                         <button onClick={this.handleClick}>Click me!</button>
                         <button onMouseOver={this.handleMouseOver}>Hover me!</button>
-                        <p onCopy={}
+                        <p onCopy={this.handleCopy}>Lorem ipsum dolor!</p>
+                        <form onSubmit={this.handleSubmit}>
+                            <input type="text" onChange={this.handleChange}/>
+                            <button>Submit!</button>
+                        </form>
                     </div>
                 )
             }
