@@ -1,8 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Newcomp extends Component{
-    render(){
-        const {content} = this.props;
+
+//functional component - without state
+const Newcomp = ({content}) =>{
+// class Newcomp extends Component{
+    // render(){
+        //const {content} = props;
         const contentList = content.map(cont =>{
             return (
                 <div className="newC" key={cont.id}>
@@ -17,8 +20,10 @@ class Newcomp extends Component{
                 {contentList}
             </div>
         )
-    }
-} 
+    // }
+// } 
+}
+
 
 export default Newcomp;
 
